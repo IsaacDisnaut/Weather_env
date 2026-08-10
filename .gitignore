@@ -1,0 +1,32 @@
+node_modules/
+.next/
+out/
+build/
+next-env.d.ts
+*.tsbuildinfo
+
+.env
+.env.local
+.env*.local
+
+.DS_Store
+*.log
+npm-debug.log*
+
+data/
+
+# mosquitto persistence / log ที่เกิดตอนรัน broker
+mosquitto/*.db
+mosquitto/*.log
+
+# Node-RED runtime (โค้ด flow ที่เป็นต้นฉบับคือ nodered/flow.json)
+nodered/node_modules/
+nodered/flows.json
+nodered/flows_cred.json
+nodered/.config.*
+nodered/.sessions.json
+nodered/lib/
+nodered/node_modules_backup/
+
+# เอกสาร .md ทั้งหมด (จะจัดการทีหลัง)
+*.md

@@ -1,0 +1,14 @@
+{
+  "name": "weather-dashboard-nodered",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Node-RED runtime สำหรับรับข้อมูล sensor จากแดชบอร์ดแล้วเขียนลงไฟล์ CSV",
+  "scripts": {
+    "start": "npm run seed-flow && node-red --userDir . --port 1880",
+    "seed-flow": "node -e \"const fs=require('fs'); if(!fs.existsSync('flows.json')) { fs.copyFileSync('flow.json','flows.json'); console.log('seeded flows.json from flow.json'); }\"",
+    "reset-flow": "node -e \"require('fs').copyFileSync('flow.json','flows.json'); console.log('flows.json reset from flow.json — restart Node-RED')\""
+  },
+  "dependencies": {
+    "node-red": "^4.1.1"
+  }
+}
