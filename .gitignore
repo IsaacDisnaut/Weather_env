@@ -28,5 +28,6 @@ nodered/.sessions.json
 nodered/lib/
 nodered/node_modules_backup/
 
-# เอกสาร .md ทั้งหมด (จะจัดการทีหลัง)
+# เอกสาร .md ทั้งหมด ยกเว้น README
 *.md
+!README.md
