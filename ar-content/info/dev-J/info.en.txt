@@ -1,0 +1,31 @@
+## The Rain-Making Rite
+
+In the set: painting 10 of 12
+Ceremony of: Ninth month
+Scene: Sanam Luang
+Located on: the wall of the main vihara, Wat Rajpradit
+
+![The Rain-Making Rite](mural.jpg)
+
+An offering for rain, performed only when the rains failed to arrive on time —
+in a normal year it was left undone, on the belief that it would only make the
+weather worse. Like the First Ploughing, it was held at Sanam Luang.
+
+The mural shows two open pavilions side by side: one enshrining the Buddha
+image for the rite, the other where the rite itself was performed, with a wind
+tower to draw the breeze down onto them. To the north stand a small pavilion
+for watching the fields and a theatre for the propitiatory performances, ringed
+by a low wall. Outside it, two-storey granaries holding the royal rice stand in
+a row around the pavilions.
+
+## The sensor at this painting
+
+Device: dev-J
+Placement: mounted beside the painting (edit this file to match the real spot)
+
+It measures temperature, humidity and vibration at the painted wall.
+Swinging humidity and sustained vibration are the two things that crack and
+lift the paint layer of a mural.
+
+Source: matichonacademy.com, article on the twelve-month royal ceremonies
+Text and image from: the book "Phra Ratchapradit Phiphitthatsana"

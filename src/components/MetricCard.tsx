@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
-import { Droplets, Sun, Thermometer, Waves } from "lucide-react";
+import { Droplets, Sun, SunMedium, Thermometer, Waves, Wind } from "lucide-react";
 import { Area, AreaChart, ResponsiveContainer, YAxis } from "recharts";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -16,6 +16,8 @@ export const METRIC_COLOR: Record<Metric, string> = {
   humidity: "var(--humid)",
   vibration: "var(--vib)",
   light: "var(--lux)",
+  uv: "var(--uvi)",
+  co2: "var(--co2)",
 };
 
 const METRIC_ICON: Record<Metric, typeof Thermometer> = {
@@ -23,6 +25,8 @@ const METRIC_ICON: Record<Metric, typeof Thermometer> = {
   humidity: Droplets,
   vibration: Waves,
   light: Sun,
+  uv: SunMedium,
+  co2: Wind,
 };
 
 export function MetricCard({

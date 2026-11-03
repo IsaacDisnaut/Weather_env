@@ -27,6 +27,8 @@ class SensorStore {
     humidity: [],
     vibration: [],
     light: [],
+    uv: [],
+    co2: [],
   };
 
   private readonly deviceIds = new Set<string>();

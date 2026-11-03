@@ -36,6 +36,8 @@ const METRIC_AXIS: Record<Metric, string> = {
   humidity: "left",
   vibration: "right",
   light: "lux",
+  uv: "uvi",
+  co2: "co2",
 };
 
 const WINDOWS = [
@@ -167,7 +169,7 @@ export function LiveChart({
                   stroke="var(--grid)"
                   minTickGap={40}
                 />
-                {/* ซ้าย = อุณหภูมิ/ความชื้น, ขวา = แรงสั่นสะเทือน, ขวาอีกแกน = ความสว่าง */}
+                {/* ซ้าย: อุณหภูมิ+ความชื้น / UV / CO2 — ขวา: แรงสั่นสะเทือน / ความสว่าง */}
                 <YAxis
                   yAxisId="left"
                   tick={{ fontSize: 11, fill: "var(--muted-foreground)" }}
@@ -180,6 +182,18 @@ export function LiveChart({
                   tick={{ fontSize: 11, fill: "var(--muted-foreground)" }}
                   stroke="var(--grid)"
                   width={44}
+                />
+                <YAxis
+                  yAxisId="uvi"
+                  tick={{ fontSize: 11, fill: "var(--uvi)" }}
+                  stroke="var(--grid)"
+                  width={34}
+                />
+                <YAxis
+                  yAxisId="co2"
+                  tick={{ fontSize: 11, fill: "var(--co2)" }}
+                  stroke="var(--grid)"
+                  width={46}
                 />
                 <YAxis
                   yAxisId="lux"

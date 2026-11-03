@@ -37,6 +37,14 @@ export const mqttConfig = {
     .slice(2, 10)}`,
 };
 
+/**
+ * token ที่แอป AR ต้องแนบมาด้วยตอนส่ง usage/feedback
+ *
+ * ว่างไว้ = ไม่ตรวจ (ใช้ตอน dev ในวง LAN) พอเปิด dashboard ออกอินเทอร์เน็ต
+ * ให้ตั้งค่านี้ แล้ว build แอปด้วย -ParToken=<ค่าเดียวกัน>
+ */
+export const ingestToken = (process.env.AR_INGEST_TOKEN ?? "").trim();
+
 export const siteConfig = {
   name: process.env.NEXT_PUBLIC_SITE_NAME ?? "Site 1",
   lat: num(process.env.NEXT_PUBLIC_SITE_LAT, 13.7563),
@@ -65,6 +73,16 @@ export const alertThresholds = {
     min: num(process.env.ALERT_LIGHT_MIN, 0),
     max: num(process.env.ALERT_LIGHT_MAX, 100000),
   },
+  // ดัชนี UV 8 ขึ้นไปถือว่าสูงมากตามเกณฑ์ WHO
+  uv: {
+    min: num(process.env.ALERT_UV_MIN, 0),
+    max: num(process.env.ALERT_UV_MAX, 8),
+  },
+  // CO2 เกิน 1000 ppm ถือว่าอากาศในอาคารถ่ายเทไม่ดีตามแนวทาง ASHRAE
+  co2: {
+    min: num(process.env.ALERT_CO2_MIN, 0),
+    max: num(process.env.ALERT_CO2_MAX, 1000),
+  },
 };
 
 export const noderedConfig = {
@@ -75,7 +93,21 @@ export const noderedConfig = {
   token: process.env.NODERED_TOKEN || undefined,
 };
 
-export const historySize = num(process.env.HISTORY_SIZE, 5000);
+/** Firebase Realtime Database — ส่งค่าล่าสุดของแต่ละอุปกรณ์ไปที่ {basePath}/{A|B|C...} */
+export const firebaseConfig = {
+  databaseURL: process.env.FIREBASE_DATABASE_URL ?? "",
+  basePath: process.env.FIREBASE_BASE_PATH || "tiewwat/live/ubosot",
+  enabled: bool(process.env.FIREBASE_ENABLED, true),
+  flushMs: num(process.env.FIREBASE_FLUSH_MS, 2_000),
+  /** none = ไม่แนบ auth, password = ล็อกอินด้วย email/password, anonymous = ล็อกอินแบบไม่ระบุตัวตน, secret = ใช้ database secret */
+  authMode: process.env.FIREBASE_AUTH_MODE || "none",
+  apiKey: process.env.FIREBASE_API_KEY ?? "",
+  secret: process.env.FIREBASE_DB_SECRET || undefined,
+  email: process.env.FIREBASE_EMAIL ?? "",
+  password: process.env.FIREBASE_PASSWORD ?? "",
+};
+
+export const historySize =num(process.env.HISTORY_SIZE, 5000);
 
 /**
  * รับข้อมูลเฉพาะอุปกรณ์ที่ระบุไว้ ถ้าเว้นว่างจะรับทุกอุปกรณ์

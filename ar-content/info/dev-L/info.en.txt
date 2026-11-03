@@ -1,0 +1,30 @@
+## The Royal Kathin by Land
+
+In the set: painting 12 of 12
+Ceremony of: Eighth waning day, eleventh month
+Scene: The land procession
+Located on: the wall of the main vihara, Wat Rajpradit
+
+![The Royal Kathin by Land](mural.jpg)
+
+The royal Kathin began on the eighth waning day of the eleventh month by long
+tradition — a major ceremony in which the king processed both by water and, as
+here, by land.
+
+The mural shows the Kathin robes carried on elephants and horses, much like the
+procession for the blessing of the royal animals, with crowds pressing in on
+both sides. Nearby, tables are laid for foreign guests of the court, and
+officials stand with the offerings, paper flags planted among them to mark
+them as the king's own Kathin goods.
+
+## The sensor at this painting
+
+Device: dev-L
+Placement: mounted beside the painting (edit this file to match the real spot)
+
+It measures temperature, humidity and vibration at the painted wall.
+Swinging humidity and sustained vibration are the two things that crack and
+lift the paint layer of a mural.
+
+Source: matichonacademy.com, article on the twelve-month royal ceremonies
+Text and image from: the book "Phra Ratchapradit Phiphitthatsana"

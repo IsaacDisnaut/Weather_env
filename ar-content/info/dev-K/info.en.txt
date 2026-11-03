@@ -1,0 +1,35 @@
+## The Sart Rite and the Stirring of Khao Thip
+
+In the set: painting 11 of 12
+Ceremony of: Tenth month
+Scene: The open halls on the eastern side
+Located on: the wall of the main vihara, Wat Rajpradit
+
+![The Sart Rite and the Stirring of Khao Thip](mural.jpg)
+
+The rite recalls Visakha offering khao thip to the Buddha, and Annakondanya
+offering yaku to a Buddha of the past and reaching arahantship before all
+others — held to be auspicious and to ward off illness from nobles and
+officials.
+
+The mixture stirred was large: rice, grains, milk, cane juice, butter, fresh
+and candied fruit. Only unmarried young women of the inner court, from royal
+daughters down to mom chao, were allowed to stir it, dressed entirely in white.
+
+On the eastern side of the mural stand two open halls. In the left one the
+stirring takes place, the hall full of court women, with four fire pits in
+front enclosed by a ceremonial fence and tiered flags; the women crouch in
+their skirts working the paddles. On the right a group of senior monks carrying
+ceremonial fans and shoulder bags files through the gate to chant.
+
+## The sensor at this painting
+
+Device: dev-K
+Placement: mounted beside the painting (edit this file to match the real spot)
+
+It measures temperature, humidity and vibration at the painted wall.
+Swinging humidity and sustained vibration are the two things that crack and
+lift the paint layer of a mural.
+
+Source: matichonacademy.com, article on the twelve-month royal ceremonies
+Text and image from: the book "Phra Ratchapradit Phiphitthatsana"

@@ -9,6 +9,8 @@ import { LiveChart } from "@/components/LiveChart";
 import { MetricCard } from "@/components/MetricCard";
 import { NodeRedPanel } from "@/components/NodeRedPanel";
 import { QuakePanel } from "@/components/QuakePanel";
+import { QuizPanel } from "@/components/QuizPanel";
+import { UsagePanel } from "@/components/UsagePanel";
 import { WeatherPanel } from "@/components/WeatherPanel";
 import { Label } from "@/components/ui/label";
 import {
@@ -30,11 +32,13 @@ import {
   type QuakePayload,
 } from "@/lib/types";
 
-/** ลำดับการ์ดในแถวบน ปิดท้ายด้วยแผงแผ่นดินไหว */
+/** ลำดับการ์ดในแถวบน — ทั้งหมดอยู่บรรทัดเดียวกัน */
 const TOP_ROW_METRICS = [
   "temperature",
   "humidity",
+  "co2",
   "light",
+  "uv",
   "vibration",
 ] as const satisfies readonly Metric[];
 
@@ -85,6 +89,8 @@ export function DashboardClient({
       humidity: filterByDevice(series.humidity, device),
       vibration: filterByDevice(series.vibration, device),
       light: filterByDevice(series.light, device),
+      uv: filterByDevice(series.uv, device),
+      co2: filterByDevice(series.co2, device),
     };
   }, [series, device]);
 
@@ -146,9 +152,8 @@ export function DashboardClient({
           </div>
         </div>
 
-        {/* แถวเดียว: อุณหภูมิ · ความชื้น · ความสว่าง · แรงสั่นสะเทือน · แผ่นดินไหว
-            ช่องสุดท้ายกว้างกว่าเพื่อให้ชื่อสถานที่ของแผ่นดินไหวไม่โดนตัด */}
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-[repeat(4,minmax(0,1fr))_1.5fr]">
+        {/* แถวเดียว: อุณหภูมิ · ความชื้น · CO2 · ความสว่าง · ดัชนี UV · แรงสั่นสะเทือน */}
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
           {TOP_ROW_METRICS.map((metric) => (
             <MetricCard
               key={metric}
@@ -157,12 +162,6 @@ export function DashboardClient({
               threshold={thresholds[metric]}
             />
           ))}
-          <QuakePanel
-            data={quakes.data}
-            error={quakes.error}
-            loading={quakes.loading}
-            compact
-          />
         </div>
 
         <LiveChart
@@ -173,8 +172,14 @@ export function DashboardClient({
 
         <div className="grid gap-4 lg:grid-cols-[1.6fr_1fr]">
           <WeatherPanel />
-          <NodeRedPanel />
+          <QuakePanel data={quakes.data} error={quakes.error} loading={quakes.loading} />
         </div>
+
+        <UsagePanel />
+
+        <QuizPanel />
+
+        <NodeRedPanel />
       </main>
     </div>
   );

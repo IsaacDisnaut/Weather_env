@@ -1,0 +1,29 @@
+## The Khanom Buang Merit-Making
+
+In the set: painting 2 of 12
+Ceremony of: First month
+Scene: Amarin Winitchai Throne Hall
+Located on: the wall of the main vihara, Wat Rajpradit
+
+![The Khanom Buang Merit-Making](mural.jpg)
+
+The date was never fixed in advance: it waited for the season when shrimp were
+rich enough to fill the khanom buang. Eighty monks were received in the Amarin
+Winitchai Throne Hall, while nobles and palace staff set up griddles under an
+awning beside the hall.
+
+In the mural a senior monk carrying a ceremonial fan walks with a group of
+temple boys toward the Thewet Raksa gate, where officials wait to receive them.
+To the side, the women of the inner court work the griddles in full swing.
+
+## The sensor at this painting
+
+Device: dev-B
+Placement: mounted beside the painting (edit this file to match the real spot)
+
+It measures temperature, humidity and vibration at the painted wall.
+Swinging humidity and sustained vibration are the two things that crack and
+lift the paint layer of a mural.
+
+Source: matichonacademy.com, article on the twelve-month royal ceremonies
+Text and image from: the book "Phra Ratchapradit Phiphitthatsana"

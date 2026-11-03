@@ -1,0 +1,30 @@
+## The Start of Buddhist Lent
+
+In the set: painting 9 of 12
+Ceremony of: Eighth month
+Scene: The alms platform at Wat Phra Kaew
+Located on: the wall of the main vihara, Wat Rajpradit
+
+![The Start of Buddhist Lent](mural.jpg)
+
+For three months of the rains, while the crops come up, the monks stay within
+their monasteries. Lay people take the chance to bring offerings to the temple,
+and at court it was the custom for princes to be ordained at the ordination
+hall of Wat Phra Kaew.
+
+In the mural the prince being ordained wears a ceremonial crown and a gold
+brocade robe as he steps onto the platform to scatter alms, an attendant
+holding the royal umbrella behind him. Pages and servants scramble merrily for
+the coins, with young women slipping in to compete with the men.
+
+## The sensor at this painting
+
+Device: dev-I
+Placement: mounted beside the painting (edit this file to match the real spot)
+
+It measures temperature, humidity and vibration at the painted wall.
+Swinging humidity and sustained vibration are the two things that crack and
+lift the paint layer of a mural.
+
+Source: matichonacademy.com, article on the twelve-month royal ceremonies
+Text and image from: the book "Phra Ratchapradit Phiphitthatsana"

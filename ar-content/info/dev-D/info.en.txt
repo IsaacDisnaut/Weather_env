@@ -1,0 +1,34 @@
+## The Chinese New Year Offering
+
+In the set: painting 4 of 12
+Ceremony of: Chinese New Year
+Scene: The Chao Phraya river
+Located on: the wall of the main vihara, Wat Rajpradit
+
+![The Chinese New Year Offering](mural.jpg)
+
+Begun under Rama III, when Chinese residents brought so many offerings that the
+king made merit in return - three days of monastic meals, with the wives of
+senior officials taking turns to bring boats of khanom chin. Rama IV later
+judged khanom chin not to be Chinese food and changed the dish to kao lao.
+
+He also had a Chinese-roofed shrine built, brought the deity images down from
+the Ho Kaeo to receive offerings across the three days, had the royal scribe
+recite the Lilit Thewaphali, and added Chinese offerings before the Buddha -
+watermelon, khanom khaeng, pickled garlic, sugar and oranges.
+
+The mural shows the Chao Phraya with Siamese and Chinese boatmen rowing north,
+monks seated at their meal facing the river, and the officials' kao lao boats
+drawn up at the landing to take their turn.
+
+## The sensor at this painting
+
+Device: dev-D
+Placement: mounted beside the painting (edit this file to match the real spot)
+
+It measures temperature, humidity and vibration at the painted wall.
+Swinging humidity and sustained vibration are the two things that crack and
+lift the paint layer of a mural.
+
+Source: matichonacademy.com, article on the twelve-month royal ceremonies
+Text and image from: the book "Phra Ratchapradit Phiphitthatsana"

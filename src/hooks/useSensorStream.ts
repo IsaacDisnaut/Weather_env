@@ -15,7 +15,7 @@ export type Series = Record<Metric, HistoryPoint[]>;
 const CLIENT_HISTORY_LIMIT = 3000;
 
 function emptySeries(): Series {
-  return { temperature: [], humidity: [], vibration: [], light: [] };
+  return { temperature: [], humidity: [], vibration: [], light: [], uv: [], co2: [] };
 }
 
 export type SensorStreamState = {

@@ -20,6 +20,12 @@ echo.
 
 REM ---------- prerequisites ----------
 set "MOSQUITTO=C:\Program Files\mosquitto\mosquitto.exe"
+
+REM ngrok publishes the local web server on a public URL so phones on other
+REM networks (mobile data included) can reach it. Set NGROK_ENABLED=0 to skip.
+REM Leave NGROK_DOMAIN empty and the reserved name is read from Auth.txt.
+set "NGROK_ENABLED=1"
+set "NGROK_DOMAIN="
 if not exist "%MOSQUITTO%" (
     echo [ERROR] Mosquitto not found at:
     echo         %MOSQUITTO%
@@ -99,6 +105,12 @@ echo Ready - opening the dashboard in your browser
 start "" http://localhost:3000/dashboard
 
 :done
+REM ---------- 4) ngrok tunnel ----------
+REM Opened only after the web server answers (or the wait gave up), otherwise
+REM anyone hitting the public URL during Next.js startup gets ERR_NGROK_8012.
+call :start_ngrok
+if defined NGROK_DOMAIN echo   Public       : https://!NGROK_DOMAIN!/dashboard
+if defined NGROK_RUNNING echo   Tunnel log   : http://127.0.0.1:4040 lists every request ngrok forwards.
 echo.
 echo This window can be closed.
 pause
@@ -107,6 +119,47 @@ exit /b 0
 REM ============================================================
 REM  helpers
 REM ============================================================
+
+REM Opens the public tunnel. Skips quietly whenever it cannot run, because a
+REM missing tunnel only costs off-network access - everything else still works.
+:start_ngrok
+if "%NGROK_ENABLED%"=="0" (
+    echo [SKIP]  ngrok disabled - set NGROK_ENABLED=1 in this file to publish a URL
+    exit /b 0
+)
+
+where ngrok >nul 2>&1
+if errorlevel 1 (
+    echo [SKIP]  ngrok not found - install it from https://ngrok.com/download
+    exit /b 0
+)
+
+REM The reserved domain lives in Auth.txt next to the authtoken, so the name is
+REM written down in one place only. No "Domain:" line means a random URL, which
+REM still works in a browser but will not match the URL baked into the APK.
+if not defined NGROK_DOMAIN (
+    if exist "%~dp0Auth.txt" (
+        for /f "tokens=2" %%D in ('findstr /b /i /c:"Domain:" "%~dp0Auth.txt"') do set "NGROK_DOMAIN=%%D"
+    )
+)
+
+call :is_listening 4040
+if !PORT_BUSY! equ 1 (
+    echo [SKIP]  Port 4040 already in use - assuming ngrok is running
+    set "NGROK_RUNNING=1"
+    exit /b 0
+)
+
+if defined NGROK_DOMAIN (
+    echo [START] ngrok tunnel  - https://!NGROK_DOMAIN!
+    start "ngrok tunnel" ngrok http 3000 --domain !NGROK_DOMAIN!
+) else (
+    echo [START] ngrok tunnel  - random URL, no "Domain:" line found in Auth.txt
+    start "ngrok tunnel" ngrok http 3000
+)
+set "NGROK_RUNNING=1"
+call :sleep 2
+exit /b 0
 
 :is_listening
 set PORT_BUSY=0

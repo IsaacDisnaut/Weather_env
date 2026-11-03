@@ -1,0 +1,36 @@
+## The Royal Ploughing Ceremony
+
+In the set: painting 7 of 12
+Ceremony of: Sixth month, paired with Visakha Bucha
+Scene: The ploughing ground
+Located on: the wall of the main vihara, Wat Rajpradit
+
+![The Royal Ploughing Ceremony](mural.jpg)
+
+The seventh ceremony in the set is Visakha Bucha, marking the Buddha's birth,
+enlightenment and passing. Instituted under Rama II and held in the sixth month,
+it saw nobles and officials set out blue-and-white porcelain tables; Rama IV
+later replaced these with rank lanterns hung inside Wat Phra Kaew, the royal
+lantern hanging on the ordination hall doors.
+
+This mural paints the other rite of the same month, the Royal Ploughing
+Ceremony, held as the rainy season opens to bless the farmers. Unlike the
+others it had no fixed date.
+
+The Lord of the Harvest grips the plough beneath a tiered umbrella, ringed by
+attendants with regalia and musicians, behind a pair of sacred oxen. He ploughs
+three oval rounds, then three broad rounds; four consorts carry silver and gold
+baskets for him to scatter the rice, then three more rounds cover it before the
+oxen are unyoked to choose from the offerings of augury.
+
+## The sensor at this painting
+
+Device: dev-G
+Placement: mounted beside the painting (edit this file to match the real spot)
+
+It measures temperature, humidity and vibration at the painted wall.
+Swinging humidity and sustained vibration are the two things that crack and
+lift the paint layer of a mural.
+
+Source: matichonacademy.com, article on the twelve-month royal ceremonies
+Text and image from: the book "Phra Ratchapradit Phiphitthatsana"

@@ -39,6 +39,8 @@
   --humid: oklch(0.65 0.15 233);
   --vib: oklch(0.6 0.22 305);
   --lux: oklch(0.72 0.15 85);
+  --uvi: oklch(0.62 0.25 340);
+  --co2: oklch(0.6 0.13 195);
   --grid: oklch(0.91 0.012 255);
 
   --chart-1: var(--temp);
@@ -77,6 +79,9 @@
     --humid: oklch(0.75 0.14 231);
     --vib: oklch(0.73 0.17 305);
     --lux: oklch(0.82 0.15 88);
+    --uvi: oklch(0.76 0.2 340);
+  --co2: oklch(0.78 0.12 195);
+    --co2: oklch(0.78 0.12 195);
     --grid: oklch(1 0 0 / 12%);
   }
 }
@@ -108,6 +113,8 @@
   --humid: oklch(0.75 0.14 231);
   --vib: oklch(0.73 0.17 305);
   --lux: oklch(0.82 0.15 88);
+  --uvi: oklch(0.76 0.2 340);
+  --co2: oklch(0.78 0.12 195);
   --grid: oklch(1 0 0 / 12%);
 }
 
@@ -140,6 +147,8 @@
   --color-humid: var(--humid);
   --color-vib: var(--vib);
   --color-lux: var(--lux);
+  --color-uvi: var(--uvi);
+  --color-co2: var(--co2);
   --color-grid: var(--grid);
 
   --color-chart-1: var(--chart-1);

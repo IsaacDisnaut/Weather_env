@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ข้อความในแอปสลับ ไทย/อังกฤษ ตอน runtime อยู่ที่ i18n/Strings.kt
+         ที่นี่เก็บเฉพาะค่าที่ระบบ Android ต้องอ่านก่อนแอปเริ่มทำงาน -->
+    <string name="app_name">Sensor AR</string>
+</resources>

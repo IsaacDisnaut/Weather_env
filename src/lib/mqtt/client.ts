@@ -4,6 +4,7 @@ import { mqttConfig } from "@/lib/config";
 import { isDeviceRegistered } from "@/lib/devices";
 import { parseMessage } from "@/lib/mqtt/parse";
 import { sensorStore } from "@/lib/mqtt/store";
+import { startFirebaseForwarder } from "@/lib/firebase";
 import { startNodeRedForwarder } from "@/lib/nodered";
 
 const globalRef = globalThis as typeof globalThis & {
@@ -56,5 +57,6 @@ export function ensureMqtt(): MqttClient {
 
   globalRef.__mqttClient = client;
   startNodeRedForwarder();
+  startFirebaseForwarder();
   return client;
 }

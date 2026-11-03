@@ -1,0 +1,29 @@
+## The Triyampawai Tripawai Rite
+
+In the set: painting 3 of 12
+Ceremony of: Second month
+Scene: The Giant Swing, Wat Suthat
+Located on: the wall of the main vihara, Wat Rajpradit
+
+![The Triyampawai Tripawai Rite](mural.jpg)
+
+A Brahmin-Hindu rite, held on the belief that two gods - Shiva and Vishnu -
+descend to visit the world once a year.
+
+The mural shows the Giant Swing in front of the Phra Sri Sakyamuni hall at Wat
+Suthat, thick with onlookers. Four raised pavilions built by Rama IV stand in
+view, put there so the king and the nobility could watch the swinging. In front,
+a palanquin carries the deity images, surrounded by Brahmins making offerings
+and five firework stands lit for the procession into the ceremonial ground.
+
+## The sensor at this painting
+
+Device: dev-C
+Placement: mounted beside the painting (edit this file to match the real spot)
+
+It measures temperature, humidity and vibration at the painted wall.
+Swinging humidity and sustained vibration are the two things that crack and
+lift the paint layer of a mural.
+
+Source: matichonacademy.com, article on the twelve-month royal ceremonies
+Text and image from: the book "Phra Ratchapradit Phiphitthatsana"

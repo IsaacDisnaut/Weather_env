@@ -1,7 +1,8 @@
 @echo off
 setlocal enabledelayedexpansion
 
-REM Stops the web server, Node-RED and MQTT broker started by start-sensor.bat.
+REM Stops the web server, Node-RED, MQTT broker and ngrok tunnel started by
+REM start-sensor.bat.
 REM Kills by listening port so unrelated node.exe processes are left alone.
 REM ASCII only - see the note in start-sensor.bat.
 
@@ -10,7 +11,7 @@ title Weather Dashboard - Stop
 echo Stopping Weather Dashboard
 echo.
 
-for %%P in (3000 1880 1883 9001) do (
+for %%P in (3000 1880 1883 9001 4040) do (
     set "FOUND="
     for /f "tokens=5" %%A in ('netstat -ano -p tcp ^| findstr /r /c:"LISTENING" ^| findstr /r /c:":%%P "') do (
         if not "%%A"=="0" (

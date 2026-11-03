@@ -1,0 +1,106 @@
+{
+  "version": 1,
+  "markers": [
+    {
+      "image": "dev-A.png",
+      "arucoId": 0,
+      "deviceId": "dev-A",
+      "label": "dev-A",
+      "location": "Zone A"
+    },
+    {
+      "image": "dev-B.png",
+      "arucoId": 1,
+      "deviceId": "dev-B",
+      "label": "dev-B",
+      "location": "Zone B"
+    },
+    {
+      "image": "dev-C.png",
+      "arucoId": 2,
+      "deviceId": "dev-C",
+      "label": "dev-C",
+      "location": "Zone C"
+    },
+    {
+      "image": "dev-D.png",
+      "arucoId": 3,
+      "deviceId": "dev-D",
+      "label": "dev-D",
+      "location": "Zone D"
+    },
+    {
+      "image": "dev-E.png",
+      "arucoId": 4,
+      "deviceId": "dev-E",
+      "label": "dev-E",
+      "location": "Zone E"
+    },
+    {
+      "image": "dev-F.png",
+      "arucoId": 5,
+      "deviceId": "dev-F",
+      "label": "dev-F",
+      "location": "Zone F"
+    },
+    {
+      "image": "site-1.png",
+      "arucoId": 6,
+      "deviceId": "site-1",
+      "label": "ประวัติพื้นที่",
+      "location": "อาคาร 1",
+      "kind": "history"
+    },
+    {
+      "image": "dev-G.png",
+      "arucoId": 7,
+      "deviceId": "dev-G",
+      "label": "dev-G",
+      "location": "พระราชพิธีจรดพระนังคัลแรกนาขวัญ"
+    },
+    {
+      "image": "dev-H.png",
+      "arucoId": 8,
+      "deviceId": "dev-H",
+      "label": "dev-H",
+      "location": "พระราชพิธีบำเพ็ญพระราชกุศลถวายสลากภัต"
+    },
+    {
+      "image": "dev-I.png",
+      "arucoId": 9,
+      "deviceId": "dev-I",
+      "label": "dev-I",
+      "location": "พระราชพิธีเข้าพรรษา"
+    },
+    {
+      "image": "dev-J.png",
+      "arucoId": 10,
+      "deviceId": "dev-J",
+      "label": "dev-J",
+      "location": "พระราชพิธีพรุณศาสตร์"
+    },
+    {
+      "image": "dev-K.png",
+      "arucoId": 11,
+      "deviceId": "dev-K",
+      "label": "dev-K",
+      "location": "พระราชพิธีสารท กวนข้าวทิพย์"
+    },
+    {
+      "image": "dev-L.png",
+      "arucoId": 12,
+      "deviceId": "dev-L",
+      "label": "dev-L",
+      "location": "พระราชพิธีถวายผ้าพระกฐินทางสถลมารค"
+    },
+    {
+      "image": "quiz-1.png",
+      "arucoId": 13,
+      "deviceId": "quiz-1",
+      "label": "เกมตอบคำถาม",
+      "location": "จุดเล่นเกม",
+      "kind": "quiz"
+    }
+  ],
+  "dictionary": "DICT_4X4_50"
+}

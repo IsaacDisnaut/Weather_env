@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  PlayerView ที่วาดวิดีโอลงทรงกลม (equirectangular) และรับการลากนิ้วเพื่อหันมอง
+  surface_type ตั้งได้จาก XML เท่านั้น จึงต้องมีเลย์เอาต์ไฟล์นี้แทนการสร้างใน Kotlin
+-->
+<androidx.media3.ui.PlayerView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/spherical_player"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    app:surface_type="spherical_gl_surface_view"
+    app:use_controller="false"
+    app:show_buffering="never" />

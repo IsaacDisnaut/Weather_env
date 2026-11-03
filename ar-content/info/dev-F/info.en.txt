@@ -1,0 +1,33 @@
+## Songkran and the Blessing of Elephants and Horses
+
+In the set: painting 6 of 12
+Ceremony of: Songkran
+Scene: Chai Chumphon pavilion, Sanam Luang
+Located on: the wall of the main vihara, Wat Rajpradit
+
+![Songkran and the Blessing of Elephants and Horses](mural.jpg)
+
+The Kachendrasawasanan rite, begun under Rama IV, blessed the war elephants and
+horses that carried the kingdom into battle. A large ceremonial ground was laid
+out at Sanam Luang, where the royal elephants, royal horses and other notable
+animals were paraded past royal teachers, court scholars and Brahmins who
+sprinkled holy water over the whole procession.
+
+The scene is set before the Chai Chumphon pavilion, a small hall on the eastern
+wall in front of Wat Phra Kaew built by Rama IV and flanked by two small forts,
+with men and women seated outside the wall to watch.
+
+Order of the procession: howdah elephant - the white monkey lord on a canopied
+litter - the royal horse - the oxen - elephants in full regalia.
+
+## The sensor at this painting
+
+Device: dev-F
+Placement: mounted beside the painting (edit this file to match the real spot)
+
+It measures temperature, humidity and vibration at the painted wall.
+Swinging humidity and sustained vibration are the two things that crack and
+lift the paint layer of a mural.
+
+Source: matichonacademy.com, article on the twelve-month royal ceremonies
+Text and image from: the book "Phra Ratchapradit Phiphitthatsana"

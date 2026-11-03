@@ -31,3 +31,12 @@ nodered/node_modules_backup/
 # เอกสาร .md ทั้งหมด ยกเว้น README
 *.md
 !README.md
+
+# ข้อมูลลับ — ngrok authtoken และรหัส WiFi ของ firmware
+Auth.txt
+firmware/**/secrets.h
+
+# ไฟล์ชั่วคราว / ข้อมูลที่ export ออกมาจากแดชบอร์ด
+sensor-readings-*.csv
+tempCodeRunnerFile.*
+__pycache__/

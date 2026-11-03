@@ -52,6 +52,8 @@ class Sensor:
     humidity: float
     vibration: float
     light: float
+    uv: float
+    co2: float
 
     def drift(self, current: float, center: float, step: float,
               low: float, high: float) -> float:
@@ -63,6 +65,8 @@ class Sensor:
         self.temperature = self.drift(self.temperature, 28, 0.6, 15, 45)
         self.humidity = self.drift(self.humidity, 60, 1.5, 20, 95)
         self.light = self.drift(self.light, 8000, 900, 0, 20000)
+        self.uv = self.drift(self.uv, 6, 0.5, 0, 13)
+        self.co2 = self.drift(self.co2, 650, 40, 400, 2000)
 
         spike = random.uniform(0, 2.5) if random.random() < VIBRATION_SPIKE_CHANCE else 0
         self.vibration = self.drift(self.vibration, 0.3, 0.15, 0, 1.2) + spike
@@ -73,6 +77,8 @@ class Sensor:
             "humidity": round(self.humidity, 2),
             "vibration": round(self.vibration, 3),
             "light": round(self.light),
+            "uv": round(self.uv, 1),
+            "co2": round(self.co2),
             "ts": int(time.time() * 1000),
         }
 
@@ -85,6 +91,8 @@ def build_sensors() -> list[Sensor]:
             humidity=60 - index * 4,
             vibration=0.3,
             light=8000 - index * 1500,
+            uv=6 - index,
+            co2=600 + index * 80,
         )
         for index, device_id in enumerate(DEVICE_IDS)
     ]
@@ -123,7 +131,7 @@ def main() -> int:
             print(
                 f"\r  ส่งแล้ว {sent} ข้อความ | {latest.device_id}: "
                 f"{latest.temperature:5.1f}°C  {latest.humidity:5.1f}%  "
-                f"{latest.vibration:5.2f}g  {latest.light:6.0f}lx",
+                f"{latest.vibration:5.2f}g  {latest.light:6.0f}lx  {latest.uv:4.1f}UVI  {latest.co2:5.0f}ppm",
                 end="",
                 flush=True,
             )

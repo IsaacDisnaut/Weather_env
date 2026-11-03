@@ -1,0 +1,32 @@
+## Floating the Royal Lanterns
+
+In the set: painting 1 of 12
+Ceremony of: Twelfth month
+Scene: Tha Ratchaworadit, on the Chao Phraya
+Located on: the wall of the main vihara, Wat Rajpradit
+
+![Floating the Royal Lanterns](mural.jpg)
+
+Held in the twelfth lunar month, a festival kept by court and commoners alike.
+The mural shows the lanterns floated at night against Tha Ratchaworadit, west
+of the Grand Palace, with four royal pavilions in view - Thippayasathan
+Thepsathit, Chalangkhaphiman, Anong Nai Saranrom and Ratchakit Winitchai -
+flanked by Fort In Amnuai Son on the right and Fort Phrom Sin on the left.
+Only Ratchakit Winitchai still stands today.
+
+On the right, two kanya-canopied barges are moored side by side as a royal
+seat. Beside them is the krathong luang, a small gilded animal-shaped boat for
+the royal lanterns, and the krathong yai offered by nobles and officials.
+Below are boats carrying fireworks, torch floats and crowds of commoners.
+
+## The sensor at this painting
+
+Device: dev-A
+Placement: mounted beside the painting (edit this file to match the real spot)
+
+It measures temperature, humidity and vibration at the painted wall.
+Swinging humidity and sustained vibration are the two things that crack and
+lift the paint layer of a mural.
+
+Source: matichonacademy.com, article on the twelve-month royal ceremonies
+Text and image from: the book "Phra Ratchapradit Phiphitthatsana"

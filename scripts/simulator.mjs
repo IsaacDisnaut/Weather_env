@@ -6,7 +6,7 @@
  *   npm run simulator -- --names dev-A,dev-C
  *
  * ส่ง payload รูปแบบ sensors/<device>/data
- *   {"deviceId":"dev-A","temperature":28.4,"humidity":62.1,"vibration":0.31,"light":8200,"ts":1712345678901}
+ *   {"deviceId":"dev-A","temperature":28.4,"humidity":62.1,"vibration":0.31,"light":8200,"uv":6.2,"co2":650,"ts":1712345678901}
  *
  * ชื่ออุปกรณ์ตั้งเป็น dev-A, dev-B, ... ให้ตรงกับ DEVICE_ALLOWLIST ที่ตั้งไว้ใน .env.local
  * ถ้าชื่อไม่อยู่ใน allowlist ค่าที่ส่งจะถูกทิ้งและไม่ขึ้นบนแดชบอร์ด
@@ -37,6 +37,8 @@ const devices = deviceNames.map((id, index) => ({
   humidity: 60 - index * 4,
   vibration: 0.3,
   light: 8000 - index * 1500,
+  uv: 6 - index,
+  co2: 600 + index * 80,
 }));
 
 /** เดินสุ่มแบบมีแรงดึงกลับเข้าค่ากลาง เพื่อให้กราฟดูเป็นธรรมชาติ */
@@ -71,6 +73,8 @@ setInterval(() => {
     device.vibration = drift(device.vibration, 0.3, 0.15, 0, 1.2) + spike;
     // LDR: แกว่งกว้างกว่าค่าอื่นเพราะแสงเปลี่ยนเร็ว (เมฆบัง/เปิดปิดไฟ)
     device.light = drift(device.light, 8000, 900, 0, 20000);
+    device.uv = drift(device.uv, 6, 0.5, 0, 13);
+    device.co2 = drift(device.co2, 650, 40, 400, 2000);
 
     const payload = {
       deviceId: device.id,
@@ -78,6 +82,8 @@ setInterval(() => {
       humidity: Number(device.humidity.toFixed(2)),
       vibration: Number(device.vibration.toFixed(3)),
       light: Math.round(device.light),
+      uv: Number(device.uv.toFixed(1)),
+      co2: Math.round(device.co2),
       ts: Date.now(),
     };
 

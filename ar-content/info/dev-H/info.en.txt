@@ -1,0 +1,34 @@
+## The Salakaphat Offering
+
+In the set: painting 8 of 12
+Ceremony of: Seventh month
+Scene: The procession from the Grand Palace to Wat Rajpradit
+Located on: the wall of the main vihara, Wat Rajpradit
+
+![The Salakaphat Offering](mural.jpg)
+
+Rama IV added this rite in the seventh month, a gap otherwise empty of royal
+ceremonies. In the salakaphat the Buddha allowed monks to draw lots for the
+food and goods that lay people brought to offer.
+
+The procession was deliberately festive: court theatre troupes or young women
+in fine dress, and sometimes carts of savoury and sweet dishes and seasonal
+fruit.
+
+The mural follows the procession from the rear of the Grand Palace to Wat
+Rajpradit, led by lute and piphat ensembles. Children with topknots and gold
+ornaments head the line, followed by young women in pairs with flowers at their
+ears, shouldering the offerings — and watched closely by the young men who came
+along for exactly that reason.
+
+## The sensor at this painting
+
+Device: dev-H
+Placement: mounted beside the painting (edit this file to match the real spot)
+
+It measures temperature, humidity and vibration at the painted wall.
+Swinging humidity and sustained vibration are the two things that crack and
+lift the paint layer of a mural.
+
+Source: matichonacademy.com, article on the twelve-month royal ceremonies
+Text and image from: the book "Phra Ratchapradit Phiphitthatsana"

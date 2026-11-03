@@ -8,6 +8,7 @@ import { isDeviceRegistered } from "@/lib/devices";
 import { parseMessage } from "@/lib/mqtt/parse";
 import { sensorStore } from "@/lib/mqtt/store";
 import { matchesAny } from "@/lib/mqtt/topic";
+import { startFirebaseForwarder } from "@/lib/firebase";
 import { startNodeRedForwarder } from "@/lib/nodered";
 
 type BrokerHandle = {
@@ -123,5 +124,6 @@ async function createEmbeddedBroker(): Promise<BrokerHandle> {
   });
 
   startNodeRedForwarder();
+  startFirebaseForwarder();
   return { aedes, tcp, wss };
 }

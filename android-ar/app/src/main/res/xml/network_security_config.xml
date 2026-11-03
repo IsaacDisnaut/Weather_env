@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- dashboard ในวง LAN เสิร์ฟผ่าน http ธรรมดา (เช่น http://192.168.1.20:3000)
+     Android 9+ บล็อก cleartext โดยปริยาย จึงต้องเปิดให้ตรงนี้
+     ถ้าย้ายไปใช้ https แล้ว ลบไฟล์นี้กับ android:networkSecurityConfig ใน manifest ออกได้ -->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system" />
+            <certificates src="user" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>

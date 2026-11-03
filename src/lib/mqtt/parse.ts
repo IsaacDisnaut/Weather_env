@@ -6,6 +6,8 @@ const ALIASES: Record<Metric, string[]> = {
   humidity: ["humidity", "humi", "hum", "rh", "relative_humidity", "h"],
   vibration: ["vibration", "vibe", "vib", "accel", "acceleration", "shock", "v"],
   light: ["light", "ldr", "lux", "illuminance", "brightness", "luminosity", "l"],
+  uv: ["uv", "uvi", "uvindex", "uv_index", "ultraviolet"],
+  co2: ["co2", "eco2", "carbondioxide", "carbon_dioxide", "ppm"],
 };
 
 const DEVICE_KEYS = ["deviceid", "device_id", "device", "id", "sensor", "node"];
@@ -85,6 +87,20 @@ function toTimestamp(value: unknown): number | null {
   return null;
 }
 
+/**
+ * บอร์ดที่ไม่ได้ sync NTP มักส่ง millis() มาเป็น ts ทำให้เวลาตกไปปี 1970
+ * แล้วกราฟกรองจุดพวกนี้ทิ้งจนไม่เหลืออะไรวาด — เวลาที่หลุดช่วงจึงถือว่าใช้ไม่ได้
+ * แล้วไปใช้เวลาที่เซิร์ฟเวอร์รับแทน
+ */
+const MAX_CLOCK_LAG_MS = 24 * 60 * 60 * 1000;
+const MAX_CLOCK_LEAD_MS = 60 * 60 * 1000;
+
+function plausibleTimestamp(ts: number | null, now: number): number | null {
+  if (ts === null) return null;
+  if (ts < now - MAX_CLOCK_LAG_MS || ts > now + MAX_CLOCK_LEAD_MS) return null;
+  return ts;
+}
+
 function findKey(record: Record<string, unknown>, keys: string[]): unknown {
   for (const [rawKey, value] of Object.entries(record)) {
     if (keys.includes(normalize(rawKey))) return value;
@@ -142,7 +158,7 @@ export function parseMessage(topic: string, payload: Buffer): Reading[] {
     typeof deviceRaw === "string" || typeof deviceRaw === "number"
       ? String(deviceRaw)
       : fallbackDevice;
-  const ts = toTimestamp(findKey(record, TIME_KEYS)) ?? now;
+  const ts = plausibleTimestamp(toTimestamp(findKey(record, TIME_KEYS)), now) ?? now;
 
   const readings: Reading[] = [];
 

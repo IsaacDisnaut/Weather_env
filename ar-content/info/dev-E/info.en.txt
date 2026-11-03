@@ -1,0 +1,30 @@
+## The Year-End Rite
+
+In the set: painting 5 of 12
+Ceremony of: Fourth into fifth month
+Scene: Suan Dusit Maha Prasat
+Located on: the wall of the main vihara, Wat Rajpradit
+
+![The Year-End Rite](mural.jpg)
+
+An annual rite for the good fortune of the capital. Rounded wooden staves called
+krabong phet were handed out as protection against harm, and the atana cannon
+was fired so that the noise would drive off malevolent spirits.
+
+The mural shows the front of Suan Dusit Maha Prasat, monks climbing the hall to
+chant the Atanatiya Paritta, and a Thai-style building in the western corner
+thought to be the Ho Thamsangwet. Outside the palace wall, gunners fire the
+atana cannon with flame bursting from the muzzle; inside it, palace women give
+alms, and further off children fly chula and pakpao kites against each other.
+
+## The sensor at this painting
+
+Device: dev-E
+Placement: mounted beside the painting (edit this file to match the real spot)
+
+It measures temperature, humidity and vibration at the painted wall.
+Swinging humidity and sustained vibration are the two things that crack and
+lift the paint layer of a mural.
+
+Source: matichonacademy.com, article on the twelve-month royal ceremonies
+Text and image from: the book "Phra Ratchapradit Phiphitthatsana"

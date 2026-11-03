@@ -12,7 +12,7 @@ export type DevicesResponse = {
   suggestion: string;
 };
 
-export const METRICS = ["temperature", "humidity", "vibration", "light"] as const;
+export const METRICS = ["temperature", "humidity", "vibration", "light", "uv", "co2"] as const;
 
 export type Metric = (typeof METRICS)[number];
 
@@ -22,6 +22,8 @@ export const METRIC_DIGITS: Record<Metric, number> = {
   humidity: 1,
   vibration: 2,
   light: 0,
+  uv: 1,
+  co2: 0,
 };
 
 export type Reading = {
@@ -132,4 +134,187 @@ export type QuakePayload = {
   radiusKm: number;
   minMagnitude: number;
   fetchedAt: number;
+};
+
+// ---------- การใช้งานแอป AR (android-ar) ----------
+
+/** ข้อมูลที่ทุก event จากแอปมีเหมือนกัน */
+type UsageEventBase = {
+  /** id ที่แอปสร้างเอง ใช้กันบันทึกซ้ำเมื่อส่ง batch เดิมอีกรอบหลังเน็ตหลุด */
+  id: string;
+  ts: number;
+  /** id สุ่มประจำเครื่องที่ติดตั้ง — ไม่ผูกกับตัวบุคคล ใช้แค่นับว่ากี่เครื่อง */
+  installId: string;
+  sessionId: string;
+  lang: string;
+  appVersion: string;
+};
+
+/** ส่องเห็น marker หนึ่งใบหนึ่งครั้ง (นับใหม่เมื่อเล็งกลับมาที่จุดเดิมอีกรอบ) */
+export type UsageScanEvent = UsageEventBase & {
+  kind: "scan";
+  deviceId: string;
+  arucoId: number | null;
+  label: string;
+  location: string | null;
+  /** ค้างอยู่ที่จุดนี้นานเท่าไรก่อนเลิกส่อง */
+  dwellMs: number;
+};
+
+/** เปิดแอปหนึ่งครั้ง — นับเฉพาะช่วงที่แอปอยู่หน้าจอจริง */
+export type UsageSessionEvent = UsageEventBase & {
+  kind: "session";
+  durationMs: number;
+  scanCount: number;
+};
+
+export type UsageEvent = UsageScanEvent | UsageSessionEvent;
+
+export type FeedbackEntry = {
+  id: string;
+  ts: number;
+  installId: string;
+  sessionId: string | null;
+  /** 1-5 ดาว — null เมื่อผู้ใช้พิมพ์ข้อความอย่างเดียว */
+  rating: number | null;
+  tags: string[];
+  message: string;
+  /** จุดที่กำลังส่องอยู่ตอนกดส่ง ช่วยให้รู้ว่าปัญหาเกิดที่จุดไหน */
+  deviceId: string | null;
+  deviceLabel: string | null;
+  /** ช่องทางติดต่อกลับ ใส่หรือไม่ใส่ก็ได้ */
+  contact: string | null;
+  lang: string;
+  appVersion: string;
+  sessionMs: number;
+  scanCount: number;
+};
+
+/** สรุปรายจุด — แถวหนึ่งคือ marker หนึ่งใบ */
+export type UsagePoint = {
+  deviceId: string;
+  label: string;
+  location: string | null;
+  arucoId: number | null;
+  scans: number;
+  /** จำนวนเครื่องที่เคยสแกนจุดนี้ */
+  uniqueVisitors: number;
+  totalDwellMs: number;
+  avgDwellMs: number;
+  lastScanAt: number;
+};
+
+export type UsageSummary = {
+  generatedAt: number;
+  sinceTs: number | null;
+  totals: {
+    scans: number;
+    sessions: number;
+    usageMs: number;
+    installs: number;
+    avgSessionMs: number;
+    feedback: number;
+    avgRating: number | null;
+  };
+  points: UsagePoint[];
+  daily: { date: string; scans: number; sessions: number; usageMs: number }[];
+  tagCounts: { tag: string; count: number }[];
+  feedback: FeedbackEntry[];
+};
+
+// ---------------------------------------------------------------------------
+// เกมตอบคำถามที่เล่นผ่าน marker ของแอป AR
+// ---------------------------------------------------------------------------
+
+export type QuizLang = "th" | "en";
+
+/** หมวดของคำถาม ใช้จัดกลุ่มตอนดูว่าคนพลาดเรื่องไหนบ่อย */
+export type QuizTopic =
+  | "order-title"
+  | "title-order"
+  | "title-month"
+  | "month-title"
+  | "title-scene"
+  | "scene-title"
+  | "temple"
+  /**
+   * ข้อความรู้สึกท้ายเกม ไม่มีคำตอบถูกผิดและไม่นับเป็นคะแนน
+   * เก็บแยกเป็นของตัวเองเพราะเป็นคนละเรื่องกับความรู้ — วัดว่าคนดูอยากให้อนุรักษ์แค่ไหน
+   */
+  | "conservation";
+
+export type QuizQuestion = {
+  /** id คงที่ของคำถาม เช่น "title-month:dev-G" ใช้รวมสถิติข้ามเกม */
+  id: string;
+  topic: QuizTopic;
+  prompt: string;
+  /** สี่ตัวเลือก สลับลำดับแล้วตาม seed — ข้อความรู้สึกมีหกตัวเลือกและไม่สลับ */
+  choices: string[];
+  /** -1 = ข้อนี้ไม่มีคำตอบถูก (ข้อความรู้สึก) ตัวเลือกที่กดคือค่าที่ต้องการเก็บ */
+  answerIndex: number;
+};
+
+/** ชุดคำถามที่ส่งให้แอป — ส่ง seed ไปด้วยเพื่อให้ส่งกลับมาตอนตรวจคะแนน */
+export type QuizSet = {
+  seed: number;
+  lang: QuizLang;
+  /** จำนวนข้อความรู้ ไม่รวมข้อความรู้สึกที่ต่อท้ายเสมอ */
+  count: number;
+  questions: QuizQuestion[];
+};
+
+/** คะแนนความอยากอนุรักษ์ 0 = ไม่เลย ถึง 5 = มากที่สุด */
+export const CONSERVATION_SCALE = [0, 1, 2, 3, 4, 5] as const;
+
+/** ผลการเล่นหนึ่งรอบ ตามที่เซิร์ฟเวอร์ตรวจแล้ว */
+export type QuizResult = {
+  id: string;
+  ts: number;
+  installId: string;
+  sessionId: string | null;
+  lang: QuizLang;
+  appVersion: string;
+  seed: number;
+  /** จำนวนข้อความรู้ ไม่รวมข้อความรู้สึก */
+  total: number;
+  correct: number;
+  durationMs: number;
+  answers: { questionId: string; topic: QuizTopic; chosenIndex: number; correct: boolean }[];
+  /** 0–5 ตามที่ผู้เล่นกด หรือ null ถ้าไม่ได้ตอบ */
+  conservation: number | null;
+};
+
+/** สถิติรายคำถาม ไว้ดูว่าข้อไหนคนตอบผิดบ่อย */
+export type QuizQuestionStat = {
+  questionId: string;
+  topic: QuizTopic;
+  asked: number;
+  correct: number;
+  accuracy: number;
+};
+
+export type QuizSummary = {
+  generatedAt: number;
+  sinceTs: number | null;
+  totals: {
+    /** จำนวนครั้งที่เล่นจบ */
+    plays: number;
+    players: number;
+    questionsAnswered: number;
+    correct: number;
+    accuracy: number;
+    avgScore: number;
+    avgDurationMs: number;
+    perfect: number;
+    /** ค่าเฉลี่ยความอยากอนุรักษ์ เฉพาะคนที่ตอบข้อนี้ */
+    conservationAvg: number | null;
+    conservationResponses: number;
+  };
+  /** จำนวนครั้งที่ได้คะแนนเท่านั้น ๆ — index คือคะแนนที่ได้ */
+  scoreSpread: { score: number; plays: number }[];
+  /** จำนวนคนที่เลือกแต่ละระดับ 0–5 */
+  conservationSpread: { score: number; responses: number }[];
+  hardest: QuizQuestionStat[];
+  daily: { date: string; plays: number; correct: number; asked: number }[];
+  recent: QuizResult[];
 };
